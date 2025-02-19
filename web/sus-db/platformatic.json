@@ -30,5 +30,13 @@
   },
   "types": {
     "autogenerate": true
-  }
+  },
+  "clients": [
+    {
+      "schema": "ai/ai.openapi.json",
+      "name": "ai",
+      "type": "openapi",
+      "serviceId": "sus-ai-warp"
+    }
+  ]
 }

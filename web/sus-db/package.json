@@ -1,5 +1,6 @@
 {
   "name": "sus-db",
+  "type": "module",
   "scripts": {
     "start": "platformatic start",
     "test": "borp"

@@ -98,6 +98,19 @@
         "udt_name": "text",
         "is_nullable": "NO",
         "is_generated": "NO"
+      },
+      {
+        "cid": 2,
+        "name": "aicomments",
+        "type": "TEXT",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0,
+        "hidden": 0,
+        "column_name": "aicomments",
+        "udt_name": "text",
+        "is_nullable": "YES",
+        "is_generated": "NO"
       }
     ]
   }
