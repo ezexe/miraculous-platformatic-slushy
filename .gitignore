@@ -132,3 +132,6 @@ dist
 
 # Watt resolved folder
 external/
+Chameleon.7z
+Chameleon.zip
+.DS_Store

@@ -1,15 +1,17 @@
 {
   "name": "sus-service",
+  "type": "module",
   "scripts": {
     "start": "platformatic start",
     "test": "borp"
   },
   "devDependencies": {
-    "fastify": "^5.0.0",
-    "borp": "^0.19.0"
+    "borp": "^0.19.0",
+    "fastify": "^5.0.0"
   },
   "dependencies": {
-    "@platformatic/service": "^2.44.5"
+    "@platformatic/service": "^2.44.5",
+    "fastify-html": "^0.7.0"
   },
   "engines": {
     "node": "^18.8.0 || >=20.6.0"

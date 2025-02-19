@@ -1,5 +1,6 @@
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
+import fs from 'node:fs'
 import Fastify from 'fastify'
 import fastifyStatic from '@fastify/static'
 
@@ -15,20 +16,33 @@ export async function build() {
   await fastify.register(fastifyStatic, {
     root: join(__dirname, 'public'),
     prefix: '/public/',
-    constraints: { host: 'example.com' }
+    constraints: { host: 'example.com' },
+    preCompressed: true,
+    
   })
 
   // Define routes
-  fastify.get('/another/path', async (req, reply) => {
-    return reply.sendFile('myHtml.html')
+  fastify.get('/latest', async (req, reply) => {
+    return reply.sendFile('latests.json')
   })
 
-  fastify.get('/path/with/different/root', async (req, reply) => {
-    return reply.sendFile('myHtml.html', join(__dirname, 'build'))
-  })
+  fastify.get("/download", async (req, rep) => {
+    const { ext } = req.query;
+    const fileName = `Chameleon.${ext || "7z"}`;
+    const filePath = join(__dirname, 'public', fileName);
+    // 
+    const stats = await fs.promises.stat(filePath);
+    // Set response headers
+    rep.header("Content-Type", "application/octet-stream");
+    rep.header("Content-Length", stats.size);
+    rep.header("Content-Disposition", `attachment; filename=${fileName}`);
+    // Create a read stream for the file and send it
+    return rep.send(fs.createReadStream(filePath));
+  });
 
-  fastify.get('/path/with-no-cache', async (req, reply) => {
-    return reply.sendFile('myHtml.html', { cacheControl: false })
+  fastify.get('/file', async (req, rep) => {
+    const { ext } = req.query;
+    return rep.sendFile(`Chameleon.${ext || "7z"}`);
   })
 
   // Counter endpoint using request counter closure
