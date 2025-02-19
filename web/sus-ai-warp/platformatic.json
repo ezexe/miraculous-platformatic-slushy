@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.platformatic.dev/@platformatic/ai-warp/0.5.1.json",
+  "service": {
+    "openapi": true
+  },
+  "watch": true,
+  "module": "@platformatic/ai-warp",
+  "aiProvider": {
+    "openai": {
+      "model": "gpt-3.5-turbo",
+      "apiKey": "{PLT_SUS_AI_WARP_AI_API_KEY}"
+    }
+  },
+  "promptDecorators": {
+    "prefix": "You are an AI for Acme Corp. here to answer questions anyone has.\nThe question for you to answer is: ",
+    "suffix": "Please respond as consisely as possible."
+  }
+}
