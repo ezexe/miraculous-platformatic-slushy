@@ -7,7 +7,7 @@
   "module": "@platformatic/ai-warp",
   "aiProvider": {
     "openai": {
-      "model": "gpt-3.5-turbo",
+      "model": "gpt-4",
       "apiKey": "{PLT_SUS_AI_WARP_AI_API_KEY}"
     }
   },
