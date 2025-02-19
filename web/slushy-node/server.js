@@ -21,7 +21,7 @@ export async function build() {
   });
 
   // Define routes
-  fastify.get("/latest", async (req, rep) => {
+  fastify.get("/example", async (req, rep) => {
     return rep.sendFile("example.json");
   });
   //
