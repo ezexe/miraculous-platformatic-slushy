@@ -1,13 +1,41 @@
-import { createServer } from 'node:http';
+import { fileURLToPath } from 'node:url'
+import { dirname, join } from 'node:path'
+import Fastify from 'fastify'
+import fastifyStatic from '@fastify/static'
 
-export function build () {
-  let count = 0
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
-  const server = createServer((req, res) => {
-    console.log('received request', req.url)
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ content: `from node:http createServer: ${count++}!` }));
+export async function build() {
+  const fastify = Fastify({
+    logger: false
   })
 
-  return server
+  // Register static file serving
+  await fastify.register(fastifyStatic, {
+    root: join(__dirname, 'public'),
+    prefix: '/public/',
+    constraints: { host: 'example.com' }
+  })
+
+  // Define routes
+  fastify.get('/another/path', async (req, reply) => {
+    return reply.sendFile('myHtml.html')
+  })
+
+  fastify.get('/path/with/different/root', async (req, reply) => {
+    return reply.sendFile('myHtml.html', join(__dirname, 'build'))
+  })
+
+  fastify.get('/path/with-no-cache', async (req, reply) => {
+    return reply.sendFile('myHtml.html', { cacheControl: false })
+  })
+
+  // Counter endpoint using request counter closure
+  let count = 0
+  fastify.get('/counter', async (req, reply) => {
+    return { content: `request count: ${count++}` }
+  })
+
+  return fastify
 }
