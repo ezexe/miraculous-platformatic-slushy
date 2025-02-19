@@ -1,0 +1,16 @@
+{
+  "name": "miraculous",
+  "private": true,
+  "scripts": {
+    "dev": "wattpm dev",
+    "build": "wattpm build",
+    "start": "wattpm start"
+  },
+  "dependencies": {
+    "wattpm": "^2.44.5"
+  },
+  "workspaces": [
+    "web/*",
+    "external/*"
+  ]
+}
