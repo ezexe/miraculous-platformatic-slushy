@@ -1,0 +1,6 @@
+{
+  "$schema": "https://schemas.platformatic.dev/@platformatic/basic/2.44.5.json",
+  "autoload": {
+    "path": "../web"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "name": "db",
+  "types": "./db.d.ts"
+}

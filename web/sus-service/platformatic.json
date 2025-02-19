@@ -12,5 +12,13 @@
       },
       "./routes"
     ]
-  }
+  },
+  "clients": [
+    {
+      "schema": "db/db.openapi.json",
+      "name": "db",
+      "type": "openapi",
+      "serviceId": "sus-db"
+    }
+  ]
 }
