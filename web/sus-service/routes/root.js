@@ -4,6 +4,9 @@ import { dirname, join } from 'node:path'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
+// Calculate the path to external directory by going up from current file location
+const externalPath = join(__dirname, '..', '..', '..', 'external')
+
 
 /** @param {import('fastify').FastifyInstance} fastify */
 export default async function (fastify, opts) {
@@ -38,7 +41,7 @@ export default async function (fastify, opts) {
           <div>
             File content:
             <br />
-            !${createReadStream('/Users/dev/gritz/miraculous/web/node/public/latests.json')}
+            !${createReadStream(join(externalPath, 'smelly.html'))}
           </div>
         </div>
     `
