@@ -1,7 +1,32 @@
 {
   "$schema": "https://schemas.platformatic.dev/@platformatic/composer/2.44.5.json",
   "composer": {
-    "services": [],
+    "services": [
+      {
+        "id": "sus-service",
+        "proxy": {
+          "prefix": "/api"
+        },
+        "openapi": {
+          "url": "/documentation/json"
+        }
+      },
+      {
+        "id": "sus-db",
+        "proxy": {
+          "prefix": "/db"
+        },
+        "openapi": {
+          "url": "/documentation/json"
+        }
+      },
+      {
+        "id": "slushy-node",
+        "proxy": {
+          "prefix": "/node"
+        }
+      }
+    ],
     "refreshTimeout": 1000
   },
   "watch": true

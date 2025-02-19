@@ -1,0 +1,17 @@
+{
+  "name": "sus-db",
+  "scripts": {
+    "start": "platformatic start",
+    "test": "borp"
+  },
+  "devDependencies": {
+    "fastify": "^5.0.0",
+    "borp": "^0.19.0"
+  },
+  "dependencies": {
+    "@platformatic/db": "^2.44.5"
+  },
+  "engines": {
+    "node": "^18.8.0 || >=20.6.0"
+  }
+}
