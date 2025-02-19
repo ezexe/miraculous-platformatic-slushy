@@ -19,9 +19,9 @@ export default async function (fastify, opts) {
     return rep.html`<h1>YO ${name}</h1>`
   })
 
-  fastify.get('/yo/:name', async (req, reply) => {
+  fastify.get('/yo/:name', async (req, rep) => {
     const userInfo = await getUserInfoPromise(req.params.name)
-    return reply.html`
+    return rep.html`
         <div>
           Welcome, ${req.params.name}.
           <br /><br />
