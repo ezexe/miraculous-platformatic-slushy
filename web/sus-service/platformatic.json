@@ -19,6 +19,12 @@
       "name": "db",
       "type": "openapi",
       "serviceId": "sus-db"
+    },
+    {
+      "schema": "ai/ai.openapi.json",
+      "name": "ai",
+      "type": "openapi",
+      "serviceId": "sus-ai-warp"
     }
   ]
 }
